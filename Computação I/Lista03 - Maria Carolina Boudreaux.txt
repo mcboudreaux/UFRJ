@@ -1,0 +1,29 @@
+Maria Carolina Boudreaux Ramirez Deleito
+DRE: 121172871
+
+1)
+a) 9
+b) 4
+c) -5
+d) 18.299999
+e) 8
+f) 0
+
+2)
+a) verdade
+b) verdade
+c) falsa
+d) verdade
+
+3) Valores de x -11, y 11 e z 10
+
+4) 
+a) -12
+b) 1 (verdadeira)
+c) 1 (verdadeira)
+d) 1 (verdadeira)
+e) 0 (falsa)
+f) 7.944445
+g) 1 (verdadeira)
+h) 0 (falsa)
+

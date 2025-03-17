@@ -1,0 +1,333 @@
+//Maria Carolina Boudreaux Ramirez Deleito
+//DRE: 121172871
+
+//Exercício 1
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    char string1[61], string2[61];
+    char aux1[61], aux2[61], crt;
+    int a, b, aux = 0;
+
+    printf("Digite a primeira string: ");
+    scanf("%s",&string1);
+
+    printf("Digite a segunda string: ");
+    scanf("%s",&string2);
+
+
+    printf("\n< MENU >\n");
+    b = strlen(string1)-1;
+    for(a = 0; string1[a]!='\0'; a++){
+       aux1[b] = string1[a];
+       b--;
+       }
+    aux1[a]='\0';
+
+    b = strlen(string2)-1;
+    for(a = 0; string2[a]!='\0'; a++){
+       aux2[b] = string2[a];
+       b--;
+       }
+    aux2[a]='\0';
+
+    printf("a. As strings invertidas:\nprimeira:%s\nsegunda:%s\n",aux1, aux2);
+
+    printf("\nb. As duas strings em outro vetor:");
+
+    b = strlen(string1)-1;
+    for(a = 0; a<=b; a++){
+       aux1[a] = string1[a];
+       }
+    printf("\nprimeira: %s", aux1);
+
+    b = strlen(string2)-1;
+    for(a = 0; a<=b; a++){
+       aux2[a] = string2[a];
+       }
+    printf("\nsegunda: %s\n", aux2);
+
+    printf("\nc. Compare as duas strings e informe quem é a string maior\n");
+
+    if(strlen(string1)>strlen(string2)){
+        printf("A primeira string é maior e possui tamanho %d\n",strlen(string1));
+        printf("\nd. A string de maior tamanho é %s\n", string1);
+    }
+    if(strlen(string1)<strlen(string2)){
+        printf("A segunda string é maiore possui tamanho %d\n",strlen(string2));
+        printf("\nd. A string de maior tamanho é %s\n", string2);
+    }
+    if(strlen(string1)==strlen(string2)){
+        printf("Ambas possuem o mesmo tamanho, que é %d\n",strlen(string1));
+        printf("\nd. A string de maior tamanho: elas tem o mesmo tamanho\nprimeira:  %s\nsegunda: %s\n", string1 ,string2);
+    }
+
+    printf("\ne. Identicar a ocorrência de determinado caractere na string:\n");
+    printf("Informe o caractere: ");
+    scanf("%s",&crt);
+
+    b = strlen(string1);
+    for(a = 0; a<b; a++){
+        if (string1[a]==crt){
+            printf("O caractere está presente na primeira string na posição %d\n",a);
+            aux = 1;
+        }
+    }
+    b = strlen(string2);
+    for(a = 0; a<b; a++){
+        if (string2[a]==crt){
+            printf("O caractere está presente na segunda string na posição %d\n",a);
+            aux = 1;
+        }
+    }
+    if (aux == 0){
+        printf("O caractere não está presente em nenhuma das strings");
+    }
+
+    return 0;
+
+}
+
+//Exercício 2
+#define DIML 2
+#define DIMC 3
+#include <stdio.h>
+
+int main(){
+    int i, j;
+    int matriz1 [50][50];
+    int matriz2 [50][50];
+    int matriz_soma [50][50];
+
+    for (i=0; i< DIML; i++){
+        for (j=0; j< DIMC; j++){
+            printf("Digite (%d,%d) da primeira matriz: ", i+1, j+1);
+            scanf("%d", &matriz1[i][j]);
+        }
+    }
+    printf("\n");
+
+    for (i=0; i< DIML; i++){
+        for (j=0; j< DIMC; j++){
+            printf("Digite (%d,%d) da segunda matriz: ", i+1, j+1);
+            scanf("%d", &matriz2[i][j]);
+        }
+    }
+    printf("\n");
+    printf("A soma das matrizes é:");
+
+    for (i=0; i< DIML; i++){
+        printf("\n");
+        for (j=0; j< DIMC; j++){
+            matriz_soma[i][j] = matriz1[i][j] + matriz2[i][j];
+            printf("%3d", matriz_soma[i][j]);
+        }
+    }
+    return 0;
+}
+
+//Exercício 3
+#define DIM 10
+#include <stdio.h>
+
+int main(){
+    int vetor[DIM], i, val;
+    int maior = -1000000, menor = 1000000;
+    int par=0, soma =0;
+
+    for (i = 0; i < DIM;i++){
+        printf("Digite o %d° da sequência: ",i+1);
+        scanf("%d",&vetor[i]);
+        if (vetor[i]>maior){
+            maior = vetor[i];
+        }
+        if (vetor[i]<menor){
+            menor = vetor[i];
+        }
+        if(vetor[i] % 2 == 0){
+            par++;
+        }
+        soma = soma+vetor[i];
+    }
+
+    printf("\nO maior valor da lista é: %d", maior);
+    printf("\nO menor valor da lista é: %d", menor);
+    printf("\nO número de valores pares é: %d", par);
+    printf("\nA soma de todos os valores é: %d\n", soma);
+
+    printf("\nQual valor deseja verificar se está no vetor: ");
+    scanf("%d",&val);
+
+    for (i = 0; i < DIM+1;i++){
+        if(val==vetor[i]){
+            printf("\nValor ESTÁ no vetor na posição (%d)",i+1);
+            break;
+        }
+        if (i==10){
+            printf("\nO Valor NÃO ESTÁ no vetor,");
+        }
+    }
+
+
+    return 0;
+}
+
+//Exercício 4
+#define DIML 5
+#define DIMC 5
+#include <stdio.h>
+
+int main(){
+    int i, j, k;
+    int matriz1 [50][50];
+    int matriz2 [50][50];
+    int matriz_mult [50][50];
+
+    for (i=0; i< DIML; i++){
+        for (j=0; j< DIMC; j++){
+            printf("Digite (%d,%d) da primeira matriz: ", i+1, j+1);
+            scanf("%d", &matriz1[i][j]);
+        }
+    }
+    printf("\n");
+
+    for (i=0; i< DIML; i++){
+        for (j=0; j< DIMC; j++){
+            printf("Digite (%d,%d) da segunda matriz: ", i+1, j+1);
+            scanf("%d", &matriz2[i][j]);
+        }
+    }
+    printf("\n");
+    printf("A multiplicação das matrizes é:");
+
+    for (i=0;i<DIML; i++) {
+        for (j=0; j<DIML; j++) {
+            for (k=0; k<DIMC; k++) {
+                matriz_mult[i][j] = matriz_mult[i][j] + (matriz1[i][k] * matriz2[k][j]);
+        }
+      }
+    }
+    printf("\n");
+
+    for (i=0; i<DIML; i++) {
+        for (j=0; j<DIMC; j++) {
+            printf("%d ", matriz_mult[i][j]);
+      }
+      printf("\n");
+    }
+
+
+    return 0;
+}
+
+//Exercício 5
+#define DIM 5
+#include <stdio.h>
+
+int main(){
+    int x[50], y[50];
+    int soma[50], produto[50], uni[50], igual[50];
+    int i, j, aux=0;
+
+    for (i = 0; i < DIM;i++){
+        printf("Digite (%d) do vetor x: ", i+1);
+        scanf("%d", &x[i]);
+        }
+
+    printf("\n");
+
+    for (i = 0; i < DIM;i++){
+        printf("Digite (%d) do vetor y: ", i+1);
+        scanf("%d", &y[i]);
+        }
+
+    printf("\na. Soma entre x e y: ");
+    for (i = 0; i < DIM;i++){
+        soma[i]=x[i]+y[i];
+        printf("%5d",soma[i]);
+    }
+
+    printf("\nb. Produto entre x e y: ");
+    for (i = 0; i < DIM;i++){
+        produto[i]=x[i]*y[i];
+        printf("%5d",produto[i]);
+    }
+
+    printf("\nc. Diferença entre x e y: ");
+
+    for (i=0;i<DIM; i++) {
+        for (j=0; j<DIM; j++) {
+            if (x[i]==y[j]){
+                igual[aux] =x[i];
+                aux++;
+                i++;
+                j=0;
+                }
+            }
+        printf("%d ",x[i]);
+
+    }
+
+    printf("\nd. Interseção entre x e y: ");
+
+    for (i=0;i<aux; i++){
+        printf("%d ",igual[i]);
+    }
+
+    printf("\ne. União entre x e y: ");
+    for (i=0;i<DIM; i++){
+        printf("%d ",x[i]);
+    }
+    for (i=0;i<DIM; i++) {
+        for (j=0; j<DIM; j++) {
+            if (y[i]==x[j]){
+                i++;
+                j=0;
+                }
+            }
+        printf("%d ",y[i]);
+    }
+
+
+    return 0;
+}
+
+//Exercício 6
+#define DIML 5
+#define DIMC 4
+#include <stdio.h>
+
+int main(){
+    float matriz[DIML][DIMC];
+    float maior = 0, soma = 0, matr, med;
+    int i, j;
+
+    for (i=0; i< DIML; i++){
+        printf("\nDigite os dados do aluno %d°:\n",i+1);
+        for (j=0; j< DIMC-1; j++){
+            printf("%d° Coluna:",j+1);
+            scanf("%f", &matriz[i][j]);
+            if (matriz[i][j]<0){
+                printf("\n***NÚMERO INVÁLIDO***\nTente novamente:\n\n");
+                j--;
+            }
+        }
+    }
+    for (i=0; i< DIML; i++){
+        matriz[i][3]=(matriz[i][1]+matriz[i][2])/2;
+        soma = soma + matriz[i][3];
+        if (matriz[i][3]>maior){
+            matr = matriz[i][0];
+            maior = matriz[i][3];
+        }
+    }
+
+    med = soma/5;
+
+    printf("\nA matrícula do aluno com maior nota é: %.0f", matr);
+    printf("\nA média aritmética das notas finais é: %.2f", med);
+
+
+    return 0;
+}

@@ -1,0 +1,161 @@
+//Maria Carolina Boudreaux Ramirez Deleito
+//DRE: 121172871
+
+//EXERCÍCIO 1
+#include <stdio.h>
+void conta_vogais (char string [], int vogais []){
+    int i, tam;
+    printf("Digite o tamanho da string: ");
+    scanf("%d", &tam);
+    for(i=0; i<tam; i++){
+	    switch(string[i]){
+            case 'a':
+                vogais[0]++;
+                break;
+            case 'e':
+                vogais[1]++;
+                break;
+            case 'i':
+                vogais[2]++;
+                break;
+            case 'o':
+                vogais[3]++;
+                break;
+            case 'u':
+                vogais[4]++;
+                break;
+	    }
+	}
+}
+int main(){
+    int tam;
+    int vogais[5];
+    char string[100];
+    vogais[0]=0,vogais[1]=0, vogais[2]=0,vogais[3]=0,vogais[4]=0;
+
+    printf("Digite a string: ");
+    scanf("%s",&string);
+
+    conta_vogais (string, vogais);
+    printf("\nVogal a: %d\n", vogais [0]);
+    printf("Vogal e: %d\n", vogais [1]);
+    printf("Vogal i: %d\n", vogais [2]);
+    printf("Vogal o: %d\n", vogais [3]);
+    printf("Vogal u: %d\n", vogais [4]);
+
+    return 0;
+}
+//EXERCÍCIO 3
+#include <stdio.h>
+int mdc(int num1, int num2) {
+    int resto;
+
+    do {
+        resto = num1 % num2;
+        num1 = num2;
+        num2 = resto;
+
+    } 
+    while (resto != 0);
+
+    return num1;
+}
+
+int main(){
+    int num1, num2;
+
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+
+    printf("\nO MDC é: %d", mdc(num1, num2));
+
+    return 0;
+}
+
+
+//EXERCÍCIO 4
+#include <stdio.h>
+int mmc(int num1, int num2) {
+
+    int resto, a, b;
+
+    a = num1;
+    b = num2;
+
+    do{
+        resto = a % b;
+        a = b;
+        b = resto;
+    }
+    while (resto != 0);
+
+    return ( num1 * num2)/a;
+}
+
+int main(){
+    int num1, num2;
+
+    printf("Digite o primeiro número: ");
+    scanf("%d", &num1);
+    printf("Digite o segundo número: ");
+    scanf("%d", &num2);
+
+    printf("\nO MMC é: %d", mmc(num1, num2));
+
+    return 0;
+}
+
+//EXERCÍCIO 5 
+#include <stdio.h>
+int strlen(char str[]){
+    int tam = 0;
+
+    while(str[tam] != '\0'){
+        tam++;
+    }
+    return tam;
+}
+
+int strcmp(char v1[], char v2[]){
+    int comp;
+    if (strlen(v1)>strlen(v2)){
+        comp = 1;
+    }
+    if (strlen(v1)<strlen(v2)){
+        comp = -1;
+    }
+    if (strlen(v1)==strlen(v2)){
+        comp = 0;
+    }
+
+    return comp;
+}
+
+int strcat(char v1[], char v2[]) {
+    int i, j;
+
+    i = strlen(v1);
+
+    for (j = 0; v2[j] != 0; i++, j++) {
+        v1[i] = v2[j];
+    }
+
+    v1[i] = 0;
+    return v1;
+}
+
+int main(){
+    char v1[10] = "123454321";
+    char v2[5] = "0987";
+
+    printf("O tamanho de v1 é: %d\n", strlen(v1));
+    printf("O tamanho de v2 é: %d\n", strlen(v2));
+
+    printf("Comparação: %d",strcmp(v1, v2));
+    printf("\nConcanetação: %s",strcat(v1, v2));
+
+
+    return 0;
+}
