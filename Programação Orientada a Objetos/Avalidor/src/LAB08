@@ -1,0 +1,24 @@
+1) Criar uma classe abstrata Estabelecimento, com atributo String nome;
+e com métodos públicos:
+     public abstract String getTipo();
+     public void receberAvaliacao(Avaliador avaliador, int nota);
+     public float getMediaAvaliacoes();
+     public int getAvaliacaoMaisRecente();
+     public getNomeMelhorAvaliador();
+
+  2) Criar uma classe Avaliador, com atributo:
+        String nome;
+   e com o método público
+   public void avaliar(Estabelecimento estabelecimento);
+
+3) Dentro do método avaliar, da classe Avaliador, você deverá estipular uma nota qualquer de 1 a 10 para o estabelecimento sendo avaliado (por exemplo, sorteando um número aleatório entre 1 e 10, ou pedindo para o usuário digitar uma nota no teclado), e deverá chamar o método receberAvaliacao do Estabelecimento sendo avaliado, passando a si próprio (this) como Avaliador e passando a nota estipulada.
+
+4) Crie uma classe Hotel, que herde de Estabelecimento.
+
+5) Crie uma classe Restaurante, que herde de Estabelecimento.
+
+6) Crie uma classe Carro, que NÃO herda de Estabelecimento.
+
+7) Para este exercício, você quer permitir que certa instância de Avaliador possa avaliar APENAS UMA SUBCLASSE DE ESTABELECIMENTO. O que você deve fazer?? Faça! ;-)
+
+8) Para este exercício, você quer que certa instância de Avaliador possa avaliar qualquer tipo de Estabelecimento, e também Carros!!! (Ou seja, você quer poder receber também um Carro como parâmetro do método avaliar.) O que você deve fazer? Faça! ;-)
